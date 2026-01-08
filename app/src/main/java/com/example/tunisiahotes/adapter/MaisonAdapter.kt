@@ -1,14 +1,14 @@
 package com.tunisiahotes.adapter
 
-import MaisonHoteEntity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.tunisia.hotes.R
-import com.tunisia.hotes.databinding.ItemMaisonHoteBinding
+import com.tunisiahotes.R
+import com.tunisiahotes.data.entity.MaisonHoteEntity
+import com.tunisiahotes.databinding.ItemMaisonHoteBinding
 
 
 

@@ -1,12 +1,12 @@
 package com.tunisiahotes.ui.detail
 
-import MaisonHoteEntity
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.tunisiahotes.data.database.AppDatabase
 import com.tunisiahotes.data.database.MaisonRepository
+import com.tunisiahotes.data.entity.MaisonHoteEntity
 
 class DetailViewModel(application: Application) : AndroidViewModel(application) {
 

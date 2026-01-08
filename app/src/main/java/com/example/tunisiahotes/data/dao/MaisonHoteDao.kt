@@ -1,7 +1,7 @@
 package com.tunisiahotes.data.dao
 
-import MaisonHoteEntity
 import androidx.room.*
+import com.tunisiahotes.data.entity.MaisonHoteEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

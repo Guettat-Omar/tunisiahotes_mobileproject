@@ -9,8 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tunisia.hotes.R
-import com.tunisia.hotes.databinding.FragmentHomeBinding
+import com.tunisiahotes.R
+import com.tunisiahotes.databinding.FragmentHomeBinding
 import com.tunisiahotes.adapter.MaisonAdapter
 import kotlinx.coroutines.launch
 

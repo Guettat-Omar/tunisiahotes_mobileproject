@@ -5,8 +5,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.tunisia.hotes.R
-import com.tunisia.hotes.databinding.ActivityMainBinding
+import com.tunisiahotes.R
+import com.tunisiahotes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,7 +1,7 @@
 package com.tunisiahotes.data.database
 
-import MaisonHoteEntity
 import com.tunisiahotes.data.dao.MaisonHoteDao
+import com.tunisiahotes.data.entity.MaisonHoteEntity
 import kotlinx.coroutines.flow.Flow
 
 class MaisonRepository(private val maisonDao: MaisonHoteDao) {

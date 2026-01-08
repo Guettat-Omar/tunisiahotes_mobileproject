@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Couleurs principales de l'application -->
+    <color name="primary">#E63946</color>
+    <color name="primary_dark">#C62828</color>
+    <color name="primary_light">#FF6B6B</color>
+
+    <color name="secondary">#457B9D</color>
+    <color name="secondary_dark">#1D3557</color>
+    <color name="secondary_light">#A8DADC</color>
+
+    <!-- Couleurs de fond -->
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Couleurs de texte -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+
+    <!-- Couleurs fonctionnelles -->
+    <color name="rating">#FFA726</color>
+    <color name="success">#66BB6A</color>
+    <color name="error">#EF5350</color>
+    <color name="warning">#FFA726</color>
+
+    <!-- Couleurs standard -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+</resources>

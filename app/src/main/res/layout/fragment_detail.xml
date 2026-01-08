@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <!-- Bouton Retour -->
+        <ImageButton
+            android:id="@+id/btnRetour"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/circle_background"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Retour"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Image principale -->
+        <ImageView
+            android:id="@+id/ivMaisonImage"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Image de la maison"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@drawable/placeholder_image" />
+
+        <!-- Card contenant les infos -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="-40dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/ivMaisonImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <!-- Nom de la maison -->
+                <TextView
+                    android:id="@+id/tvNomMaison"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Maison Hannibal" />
+
+                <!-- Avis -->
+                <TextView
+                    android:id="@+id/tvAvis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/rating"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tvNomMaison"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="★ 9.5/10 (5 avis)" />
+
+                <!-- Ligne de séparation -->
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/text_hint"
+                    app:layout_constraintTop_toBottomOf="@id/tvAvis"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Description -->
+                <TextView
+                    android:id="@+id/labelDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Description :"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toBottomOf="@id/divider1"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="4dp"
+                    app:layout_constraintTop_toBottomOf="@id/labelDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Belle maison d'hôtes..." />
+
+                <!-- Région -->
+                <TextView
+                    android:id="@+id/labelRegion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/detail_region"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toBottomOf="@id/tvDescription"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvRegion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    app:layout_constraintTop_toTopOf="@id/labelRegion"
+                    app:layout_constraintBottom_toBottomOf="@id/labelRegion"
+                    app:layout_constraintStart_toEndOf="@id/labelRegion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Tunis" />
+
+                <!-- Ville -->
+                <TextView
+                    android:id="@+id/labelVille"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail_ville"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toBottomOf="@id/labelRegion"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvVille"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    app:layout_constraintTop_toTopOf="@id/labelVille"
+                    app:layout_constraintBottom_toBottomOf="@id/labelVille"
+                    app:layout_constraintStart_toEndOf="@id/labelVille"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Tunis" />
+
+                <!-- Saison préférée -->
+                <TextView
+                    android:id="@+id/labelSaison"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail_saison"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toBottomOf="@id/labelVille"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvSaison"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    app:layout_constraintTop_toTopOf="@id/labelSaison"
+                    app:layout_constraintBottom_toBottomOf="@id/labelSaison"
+                    app:layout_constraintStart_toEndOf="@id/labelSaison"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Printemps / Automne" />
+
+                <!-- Vue sur mer -->
+                <TextView
+                    android:id="@+id/labelVueMer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail_vue_mer"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toBottomOf="@id/labelSaison"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvVueMer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    app:layout_constraintTop_toTopOf="@id/labelVueMer"
+                    app:layout_constraintBottom_toBottomOf="@id/labelVueMer"
+                    app:layout_constraintStart_toEndOf="@id/labelVueMer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Oui" />
+
+                <!-- Proche de la mer -->
+                <TextView
+                    android:id="@+id/labelProcheMer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail_proche_mer"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toBottomOf="@id/labelVueMer"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvProcheMer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    app:layout_constraintTop_toTopOf="@id/labelProcheMer"
+                    app:layout_constraintBottom_toBottomOf="@id/labelProcheMer"
+                    app:layout_constraintStart_toEndOf="@id/labelProcheMer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Non" />
+
+                <!-- Prix -->
+                <TextView
+                    android:id="@+id/labelPrix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/detail_prix"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toBottomOf="@id/labelProcheMer"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPrix"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary"
+                    app:layout_constraintTop_toTopOf="@id/labelPrix"
+                    app:layout_constraintBottom_toBottomOf="@id/labelPrix"
+                    app:layout_constraintStart_toEndOf="@id/labelPrix"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="220 TND" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Bouton Réserver -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReserver"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/btn_reserver"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            style="@style/Widget.Material3.Button"
+            app:layout_constraintTop_toBottomOf="@id/cardInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Info : Appui long pour ajouter un avis -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Appuyez longuement sur l'écran pour ajouter un avis"
+            android:textSize="12sp"
+            android:textColor="@color/text_hint"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/btnReserver"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tunisia\'Hôtes</string>
+
+    <!-- Home -->
+    <string name="no_maisons">Aucune maison d\'hôtes disponible</string>
+    <string name="btn_plus_details">Plus de détails</string>
+    <string name="btn_decouvrir_plus">Découvrir plus</string>
+
+    <!-- Filtrage -->
+    <string name="filter_title">Filtrer par</string>
+    <string name="filter_region">Région</string>
+    <string name="filter_ville">Ville</string>
+    <string name="filter_saison">Saison</string>
+    <string name="filter_prix">Prix</string>
+    <string name="filter_avis">Avis</string>
+
+    <!-- Détails -->
+    <string name="detail_region">Région :</string>
+    <string name="detail_ville">Ville :</string>
+    <string name="detail_saison">Saison préférée :</string>
+    <string name="detail_prix">Prix (2 pers., 1 nuit) :</string>
+    <string name="detail_vue_mer">Vue sur mer :</string>
+    <string name="detail_proche_mer">Proche de la mer :</string>
+    <string name="btn_reserver">Réserver</string>
+
+    <!-- Réservation -->
+    <string name="reservation_title">Réservation</string>
+    <string name="reservation_nom">Nom complet</string>
+    <string name="reservation_tel">Numéro de téléphone</string>
+    <string name="reservation_nuitees">Nombre de nuitées</string>
+    <string name="reservation_personnes">Nombre de personnes</string>
+    <string name="reservation_total">Somme totale à payer :</string>
+    <string name="reservation_carte">Numéro de carte</string>
+    <string name="reservation_type_carte">Type de carte</string>
+    <string name="btn_suivant">Suivant</string>
+    <string name="btn_confirmer">Confirmer la réservation</string>
+
+    <!-- Avis -->
+    <string name="avis_title">Ajouter un avis</string>
+    <string name="avis_note">Votre note (sur 10) :</string>
+    <string name="btn_ajouter_avis">Ajouter l\'avis</string>
+
+    <!-- Développeur -->
+    <string name="dev_access_title">Accès Développeur</string>
+    <string name="dev_name">Nom de développeur</string>
+    <string name="dev_id">ID Développeur</string>
+    <string name="btn_access">Accéder</string>
+    <string name="dev_access_denied">Accès refusé</string>
+    <string name="dev_add_maison">Ajouter une maison</string>
+
+    <!-- Messages -->
+    <string name="error_champ_vide">Veuillez remplir tous les champs</string>
+    <string name="error_numero_invalide">Numéro de téléphone invalide</string>
+    <string name="success_reservation">Réservation confirmée !</string>
+    <string name="success_avis">Avis ajouté avec succès</string>
+
+    <!-- Oui/Non -->
+    <string name="oui">Oui</string>
+    <string name="non">Non</string>
+</resources>

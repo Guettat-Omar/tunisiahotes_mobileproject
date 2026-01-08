@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Fragment Home (Page d'accueil) -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.tunisiahotes.ui.home.HomeFragment"
+        android:label="Tunisia'Hôtes"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_filterFragment"
+            app:destination="@id/filterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_developerAccessFragment"
+            app:destination="@id/developerAccessFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_addAvisFragment"
+            app:destination="@id/addAvisFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Fragment Détails -->
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.tunisiahotes.ui.detail.DetailFragment"
+        android:label="Détails"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="maisonId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_detailFragment_to_reservationFragment"
+            app:destination="@id/reservationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_detailFragment_to_addAvisFragment"
+            app:destination="@id/addAvisFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Fragment Filtrage -->
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.tunisiahotes.ui.filter.FilterFragment"
+        android:label="Filtrer"
+        tools:layout="@layout/fragment_filter">
+
+        <action
+            android:id="@+id/action_filterFragment_to_filteredResultFragment"
+            app:destination="@id/filteredResultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Fragment Résultat Filtré -->
+    <fragment
+        android:id="@+id/filteredResultFragment"
+        android:name="com.tunisiahotes.ui.filter.FilteredResultFragment"
+        android:label="Résultats"
+        tools:layout="@layout/fragment_filtered_result">
+
+        <argument
+            android:name="filterType"
+            app:argType="string" />
+
+        <argument
+            android:name="filterValue"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_filteredResultFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Fragment Réservation -->
+    <fragment
+        android:id="@+id/reservationFragment"
+        android:name="com.tunisiahotes.ui.reservation.ReservationFragment"
+        android:label="Réservation"
+        tools:layout="@layout/fragment_reservation">
+
+        <argument
+            android:name="maisonId"
+            app:argType="integer" />
+    </fragment>
+
+    <!-- Fragment Accès Développeur -->
+    <fragment
+        android:id="@+id/developerAccessFragment"
+        android:name="com.tunisiahotes.ui.developer.DeveloperAccessFragment"
+        android:label="Accès Développeur"
+        tools:layout="@layout/fragment_developer_access">
+
+        <action
+            android:id="@+id/action_developerAccessFragment_to_addMaisonFragment"
+            app:destination="@id/addMaisonFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Fragment Ajouter Maison -->
+    <fragment
+        android:id="@+id/addMaisonFragment"
+        android:name="com.tunisiahotes.ui.developer.AddMaisonFragment"
+        android:label="Ajouter une maison"
+        tools:layout="@layout/fragment_add_maison" />
+
+    <!-- Fragment Ajouter Avis -->
+    <fragment
+        android:id="@+id/addAvisFragment"
+        android:name="com.tunisiahotes.ui.avis.AddAvisFragment"
+        android:label="Ajouter un avis"
+        tools:layout="@layout/fragment_add_avis">
+
+        <argument
+            android:name="maisonId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

@@ -259,7 +259,7 @@ abstract class AppDatabase : RoomDatabase() {
                     procheMer = "Non",
                     avis = 8.7f,
                     nbAvis = 1,
-                    photoLink = "https://drive.google.com/file/d/1FoPELX_9wL8xn-1EQHuB7F-wK7SBr5VB/view"
+                    photoLink = "https://www.booking.com/hotel/tn/dar-elhadir-tozeur.fr.html"
                 ),
                 MaisonHoteEntity(
                     nom = "Étoile Sing",

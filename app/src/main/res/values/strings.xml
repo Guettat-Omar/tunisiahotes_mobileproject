@@ -4,8 +4,12 @@
 
     <!-- Home -->
     <string name="no_maisons">Aucune maison d\'hôtes disponible</string>
-    <string name="btn_plus_details">Plus de détails</string>
-    <string name="btn_decouvrir_plus">Découvrir plus</string>
+    <string name="btn_plus_details">Détails</string>
+    <string name="maison_edit">Modifier la maison</string>
+    <string name="maison_delete">Supprimer la maison</string>
+    <string name="maison_delete_title">Supprimer cette maison ?</string>
+    <string name="maison_delete_message">Cette action est définitive.</string>
+    <string name="btn_annuler">Annuler</string>
 
     <!-- Filtrage -->
     <string name="filter_title">Filtrer par</string>
@@ -26,6 +30,9 @@
 
     <!-- Réservation -->
     <string name="reservation_title">Réservation</string>
+    <string name="reservation_section_contact">Vos informations</string>
+    <string name="reservation_section_stay">Votre séjour</string>
+    <string name="reservation_section_payment">Paiement</string>
     <string name="reservation_nom">Nom complet</string>
     <string name="reservation_tel">Numéro de téléphone</string>
     <string name="reservation_nuitees">Nombre de nuitées</string>
@@ -35,6 +42,22 @@
     <string name="reservation_type_carte">Type de carte</string>
     <string name="btn_suivant">Suivant</string>
     <string name="btn_confirmer">Confirmer la réservation</string>
+
+    <!-- Ajouter/Modifier Maison -->
+    <string name="add_maison_title">Ajouter une maison</string>
+    <string name="edit_maison_title">Modifier la maison</string>
+    <string name="maison_nom">Nom de la maison</string>
+    <string name="maison_description">Description</string>
+    <string name="maison_region">Région</string>
+    <string name="maison_ville">Ville</string>
+    <string name="maison_saison">Saison préférée</string>
+    <string name="maison_prix">Prix par nuit</string>
+    <string name="maison_vue_mer">Vue sur mer</string>
+    <string name="maison_proche_mer">Proximité de la mer</string>
+    <string name="maison_photo_link">Lien de la photo (Google Drive ou URL directe)</string>
+    <string name="maison_photo_help">Utilisez un lien partageable Google Drive (format /d/ID/) ou un lien d'image direct.</string>
+    <string name="btn_save_maison">Enregistrer</string>
+    <string name="error_prix_invalide">Prix invalide</string>
 
     <!-- Avis -->
     <string name="avis_title">Ajouter un avis</string>

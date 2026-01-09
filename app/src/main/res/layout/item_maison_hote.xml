@@ -43,6 +43,25 @@
             app:layout_constraintStart_toEndOf="@id/ivMaisonImage"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="Maison Hannibal" />
+        <ImageButton
+            android:id="@+id/btnEditMaison"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/maison_edit"
+            android:src="@android:drawable/ic_menu_edit"
+            app:layout_constraintEnd_toStartOf="@id/btnDeleteMaison"
+            app:layout_constraintTop_toTopOf="@id/tvNomMaison" />
+
+        <ImageButton
+            android:id="@+id/btnDeleteMaison"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/maison_delete"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvNomMaison" />
 
         <!-- Région et Ville -->
         <TextView
@@ -89,32 +108,31 @@
 
         <!-- Bouton Plus de détails -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPlusDetails"
+            android:id="@+id/btnDetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="4dp"
-            android:text="Plus de détails"
-            android:textSize="12sp"
-            app:cornerRadius="8dp"
-            style="@style/Widget.Material3.Button"
-            app:layout_constraintTop_toBottomOf="@id/ivMaisonImage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnDecouvrirPlus" />
-
-        <!-- Bouton Découvrir plus -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDecouvrirPlus"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="4dp"
-            android:text="Découvrir plus"
+            android:text="@string/btn_plus_details"
             android:textSize="12sp"
             app:cornerRadius="8dp"
             style="@style/Widget.Material3.Button.OutlinedButton"
             app:layout_constraintTop_toBottomOf="@id/ivMaisonImage"
-            app:layout_constraintStart_toEndOf="@id/btnPlusDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnReserver" />
+        <!-- Bouton Découvrir plus -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReserver"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="4dp"
+            android:text="@string/btn_reserver"
+            android:textSize="12sp"
+            app:cornerRadius="8dp"
+            style="@style/Widget.Material3.Button"
+            app:layout_constraintTop_toBottomOf="@id/ivMaisonImage"
+            app:layout_constraintStart_toEndOf="@id/btnDetails"
             app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

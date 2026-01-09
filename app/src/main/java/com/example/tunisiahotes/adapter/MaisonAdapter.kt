@@ -15,7 +15,9 @@ import com.example.tunisiahotes.databinding.ItemMaisonHoteBinding
 
 class MaisonAdapter(
     private val onDetailClick: (MaisonHoteEntity) -> Unit,
-    private val onDecouvrirClick: (MaisonHoteEntity) -> Unit,
+    private val onReserveClick: (MaisonHoteEntity) -> Unit,
+    private val onEditClick: (MaisonHoteEntity) -> Unit,
+    private val onDeleteClick: (MaisonHoteEntity) -> Unit,
     private val onLongPress: ((MaisonHoteEntity) -> Unit)? = null
 ) : ListAdapter<MaisonHoteEntity, MaisonAdapter.MaisonViewHolder>(MaisonDiffCallback()) {
 
@@ -60,12 +62,19 @@ class MaisonAdapter(
                     .into(ivMaisonImage)
 
                 // Boutons
-                btnPlusDetails.setOnClickListener {
+                btnDetails.setOnClickListener {
                     onDetailClick(maison)
                 }
 
-                btnDecouvrirPlus.setOnClickListener {
-                    onDecouvrirClick(maison)
+                btnReserver.setOnClickListener {
+                    onReserveClick(maison)
+                }
+                btnEditMaison.setOnClickListener {
+                    onEditClick(maison)
+                }
+
+                btnDeleteMaison.setOnClickListener {
+                    onDeleteClick(maison)
                 }
 
                 // Long press pour ajouter un avis

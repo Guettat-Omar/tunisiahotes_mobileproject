@@ -20,15 +20,25 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/tvReservationContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reservation_section_contact"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvReservation"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutFullName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            app:boxBackgroundMode="outline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReservation">
+            app:layout_constraintTop_toBottomOf="@id/tvReservationContact">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputFullName"
@@ -37,15 +47,25 @@
                 android:hint="@string/reservation_nom"
                 android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tvReservationStay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/reservation_section_stay"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutPhone"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutPhone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutFullName">
+            app:layout_constraintTop_toBottomOf="@id/tvReservationStay">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputPhone"
@@ -60,6 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputLayoutPhone">
@@ -99,16 +120,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputLayoutGuests"/>
+        <TextView
+            android:id="@+id/tvReservationPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/reservation_section_payment"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTotal"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutCardNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textTotal">
-
+            app:layout_constraintTop_toBottomOf="@id/tvReservationPayment">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputCardNumber"
                 android:layout_width="match_parent"
@@ -122,6 +152,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputLayoutCardNumber">

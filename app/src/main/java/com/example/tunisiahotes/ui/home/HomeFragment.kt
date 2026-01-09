@@ -14,6 +14,8 @@ import com.example.tunisiahotes.R
 import com.example.tunisiahotes.adapter.MaisonAdapter
 import com.example.tunisiahotes.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
+import androidx.appcompat.app.AlertDialog
+import com.example.tunisiahotes.data.entity.MaisonHoteEntity
 
 class HomeFragment : Fragment() {
 
@@ -54,8 +56,14 @@ class HomeFragment : Fragment() {
             onDetailClick = { maison ->
                 goToDetail(maison.id)
             },
-            onDecouvrirClick = { maison ->
-                goToDetail(maison.id)
+            onReserveClick = { maison ->
+                goToReservation(maison.id)
+            },
+            onEditClick = { maison ->
+                goToEdit(maison.id)
+            },
+            onDeleteClick = { maison ->
+                confirmDelete(maison)
             },
             onLongPress = { maison ->
                 goToAddAvis(maison.id)
@@ -95,6 +103,29 @@ class HomeFragment : Fragment() {
             R.id.action_homeFragment_to_addAvisFragment,
             bundleOf("maisonId" to maisonId)
         )
+    }
+    private fun goToReservation(maisonId: Int) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_reservationFragment,
+            bundleOf("maisonId" to maisonId)
+        )
+    }
+    private fun goToEdit(maisonId: Int) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_addMaisonFragment,
+            bundleOf("maisonId" to maisonId)
+        )
+    }
+
+    private fun confirmDelete(maison: MaisonHoteEntity) {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.maison_delete_title)
+            .setMessage(R.string.maison_delete_message)
+            .setNegativeButton(R.string.btn_annuler, null)
+            .setPositiveButton(R.string.maison_delete) { _, _ ->
+                viewModel.deleteMaison(maison)
+            }
+            .show()
     }
 
     override fun onDestroyView() {

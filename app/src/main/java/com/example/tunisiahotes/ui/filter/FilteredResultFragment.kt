@@ -1,5 +1,6 @@
 package com.example.tunisiahotes.ui.filter
 
+import androidx.appcompat.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -48,13 +49,20 @@ class FilteredResultFragment : Fragment() {
             onDetailClick = { maison ->
                 goToDetail(maison.id)
             },
-            onDecouvrirClick = { maison ->
-                goToDetail(maison.id)
+            onReserveClick = { maison ->
+                goToReservation(maison.id)
+            },
+            onEditClick = { maison ->
+                goToEdit(maison.id)
+            },
+            onDeleteClick = { maison ->
+                confirmDelete(maison)
             },
             onLongPress = { maison ->
                 goToAddAvis(maison.id)
             }
         )
+
 
         binding.rvMaisons.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMaisons.adapter = adapter
@@ -112,6 +120,31 @@ class FilteredResultFragment : Fragment() {
             R.id.addAvisFragment,
             bundleOf("maisonId" to maisonId)
         )
+    }
+    private fun goToReservation(maisonId: Int) {
+        findNavController().navigate(
+            R.id.action_filteredResultFragment_to_reservationFragment,
+            bundleOf("maisonId" to maisonId)
+        )
+    }
+    private fun goToEdit(maisonId: Int) {
+        findNavController().navigate(
+            R.id.action_filteredResultFragment_to_addMaisonFragment,
+            bundleOf("maisonId" to maisonId)
+        )
+    }
+
+    private fun confirmDelete(maison: MaisonHoteEntity) {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.maison_delete_title)
+            .setMessage(R.string.maison_delete_message)
+            .setNegativeButton(R.string.btn_annuler, null)
+            .setPositiveButton(R.string.maison_delete) { _, _ ->
+                viewLifecycleOwner.lifecycleScope.launch {
+                    repository.deleteMaison(maison)
+                }
+            }
+            .show()
     }
 
     override fun onDestroyView() {

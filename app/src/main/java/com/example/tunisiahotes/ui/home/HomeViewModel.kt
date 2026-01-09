@@ -4,10 +4,12 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.tunisiahotes.data.database.AppDatabase
 import com.example.tunisiahotes.data.database.MaisonRepository
 import com.example.tunisiahotes.data.entity.MaisonHoteEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -18,6 +20,11 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         val maisonDao = AppDatabase.getDatabase(application).maisonHoteDao()
         repository = MaisonRepository(maisonDao)
         allMaisons = repository.getAllMaisons()
+    }
+    fun deleteMaison(maison: MaisonHoteEntity) {
+        viewModelScope.launch {
+            repository.deleteMaison(maison)
+        }
     }
 }
 

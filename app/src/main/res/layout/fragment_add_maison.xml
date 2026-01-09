@@ -1,37 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:fillViewport="true">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/etNomMaison"
-            android:layout_width="match_parent"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/tvMaisonTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Nom de la maison"/>
-
-        <EditText
-            android:id="@+id/etVille"
-            android:layout_width="match_parent"
+            android:text="@string/add_maison_title"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutMaisonNom"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Ville"/>
+        android:layout_marginTop="16dp"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMaisonTitle">
 
-        <EditText
-            android:id="@+id/etPrix"
-            android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMaisonNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/maison_nom"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutMaisonDescription"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Prix par nuit"/>
+            android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutMaisonNom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMaisonDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/maison_description"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutMaisonRegion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutMaisonDescription">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMaisonRegion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/maison_region"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutMaisonVille"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutMaisonRegion">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMaisonVille"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/maison_ville"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutMaisonSaison"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutMaisonVille">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMaisonSaison"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/maison_saison"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutMaisonPrix"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutMaisonSaison">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMaisonPrix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/maison_prix"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchMaisonVueMer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/maison_vue_mer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputLayoutMaisonPrix" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutMaisonProcheMer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switchMaisonVueMer">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMaisonProcheMer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/maison_proche_mer"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutMaisonPhoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:boxBackgroundMode="outline"
+            app:helperText="@string/maison_photo_help"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutMaisonProcheMer">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMaisonPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/maison_photo_link"
+                android:inputType="textUri" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/btnSaveMaison"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Enregistrer"/>
-
-    </LinearLayout>
-</ScrollView>
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_save_maison"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputLayoutMaisonPhoto" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

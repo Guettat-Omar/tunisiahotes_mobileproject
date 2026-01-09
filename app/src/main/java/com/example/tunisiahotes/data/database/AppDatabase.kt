@@ -1,4 +1,4 @@
-package com.tunisiahotes.data.database
+package com.example.tunisiahotes.data.database
 
 
 import android.content.Context
@@ -6,8 +6,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.tunisiahotes.data.dao.MaisonHoteDao
-import com.tunisiahotes.data.entity.MaisonHoteEntity
+import com.example.tunisiahotes.data.dao.MaisonHoteDao
+import com.example.tunisiahotes.data.entity.MaisonHoteEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

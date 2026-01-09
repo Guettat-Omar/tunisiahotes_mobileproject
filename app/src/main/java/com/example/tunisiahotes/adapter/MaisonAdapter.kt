@@ -1,4 +1,4 @@
-package com.tunisiahotes.adapter
+package com.example.tunisiahotes.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.tunisiahotes.R
-import com.tunisiahotes.data.entity.MaisonHoteEntity
-import com.tunisiahotes.databinding.ItemMaisonHoteBinding
+import com.example.tunisiahotes.R
+import com.example.tunisiahotes.data.entity.MaisonHoteEntity
+import com.example.tunisiahotes.databinding.ItemMaisonHoteBinding
+
 
 
 

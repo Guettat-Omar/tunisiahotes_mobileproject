@@ -1,26 +1,23 @@
-package com.tunisiahotes.ui.detail
+package com.example.tunisiahotes.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.tunisiahotes.R
-import com.tunisiahotes.databinding.FragmentDetailBinding
-
+import com.example.tunisiahotes.R
+import com.example.tunisiahotes.databinding.FragmentDetailBinding
 import kotlinx.coroutines.launch
 
 class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
-
-    private val args: DetailFragmentArgs by navArgs()
 
     private val viewModel: DetailViewModel by viewModels {
         DetailViewModelFactory(requireActivity().application)
@@ -42,60 +39,59 @@ class DetailFragment : Fragment() {
         loadMaisonDetails()
     }
 
+    // -------------------------
+    // UI & Navigation
+    // -------------------------
     private fun setupUI() {
+
         binding.btnRetour.setOnClickListener {
             findNavController().navigateUp()
         }
 
         binding.btnReserver.setOnClickListener {
-            val action = DetailFragmentDirections
-                .actionDetailFragmentToReservationFragment(args.maisonId)
-            findNavController().navigate(action)
+            val maisonId = arguments?.getInt("maisonId") ?: return@setOnClickListener
+            findNavController().navigate(
+                R.id.action_detailFragment_to_reservationFragment,
+                bundleOf("maisonId" to maisonId)
+            )
         }
 
-        // Long press pour ajouter un avis
+        // Long press → Ajouter avis
         binding.root.setOnLongClickListener {
-            val action = DetailFragmentDirections
-                .actionDetailFragmentToAddAvisFragment(args.maisonId)
-            findNavController().navigate(action)
+            val maisonId = arguments?.getInt("maisonId") ?: return@setOnLongClickListener true
+            findNavController().navigate(
+                R.id.action_detailFragment_to_addAvisFragment,
+                bundleOf("maisonId" to maisonId)
+            )
             true
         }
     }
 
+    // -------------------------
+    // Chargement des données
+    // -------------------------
     private fun loadMaisonDetails() {
         viewLifecycleOwner.lifecycleScope.launch {
-            val maison = viewModel.getMaisonById(args.maisonId)
+
+            val maisonId = arguments?.getInt("maisonId")
+                ?: return@launch
+
+            val maison = viewModel.getMaisonById(maisonId)
 
             if (maison != null) {
                 binding.apply {
-                    // Nom
+
                     tvNomMaison.text = maison.nom
-
-                    // Description
                     tvDescription.text = maison.description
-
-                    // Région
                     tvRegion.text = maison.region
-
-                    // Ville
                     tvVille.text = maison.ville
-
-                    // Saison
                     tvSaison.text = maison.saison
-
-                    // Prix
                     tvPrix.text = "${maison.prixNuite.toInt()} TND"
-
-                    // Vue mer
                     tvVueMer.text = if (maison.vueMer) "Oui" else "Non"
-
-                    // Proche mer
                     tvProcheMer.text = maison.procheMer
+                    tvAvis.text =
+                        "★ ${String.format("%.1f", maison.avis)}/10 (${maison.nbAvis} avis)"
 
-                    // Avis
-                    tvAvis.text = "★ ${String.format("%.1f", maison.avis)}/10 (${maison.nbAvis} avis)"
-
-                    // Image
                     val imageUrl = convertDriveLink(maison.photoLink)
                     Glide.with(requireContext())
                         .load(imageUrl)
@@ -105,17 +101,19 @@ class DetailFragment : Fragment() {
                         .into(ivMaisonImage)
                 }
             } else {
-                // Maison non trouvée
                 findNavController().navigateUp()
             }
         }
     }
 
+    // -------------------------
+    // Google Drive image helper
+    // -------------------------
     private fun convertDriveLink(link: String): String {
-        val fileIdRegex = "/d/([^/]+)/".toRegex()
-        val matchResult = fileIdRegex.find(link)
-        return if (matchResult != null) {
-            val fileId = matchResult.groupValues[1]
+        val regex = "/d/([^/]+)/".toRegex()
+        val match = regex.find(link)
+        return if (match != null) {
+            val fileId = match.groupValues[1]
             "https://drive.google.com/uc?export=view&id=$fileId"
         } else {
             link

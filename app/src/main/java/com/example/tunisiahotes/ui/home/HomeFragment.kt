@@ -1,17 +1,18 @@
-package com.tunisiahotes.ui.home
+package com.example.tunisiahotes.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tunisiahotes.R
-import com.tunisiahotes.databinding.FragmentHomeBinding
-import com.tunisiahotes.adapter.MaisonAdapter
+import com.example.tunisiahotes.R
+import com.example.tunisiahotes.adapter.MaisonAdapter
+import com.example.tunisiahotes.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -37,32 +38,34 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupTopButtons()
         setupRecyclerView()
         observeData()
+    }
+
+    private fun setupTopButtons() {
+        binding.btnFilter.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_filterFragment)
+        }
     }
 
     private fun setupRecyclerView() {
         adapter = MaisonAdapter(
             onDetailClick = { maison ->
-                val action = HomeFragmentDirections
-                    .actionHomeFragmentToDetailFragment(maison.id)
-                findNavController().navigate(action)
+                goToDetail(maison.id)
             },
             onDecouvrirClick = { maison ->
-                val action = HomeFragmentDirections
-                    .actionHomeFragmentToDetailFragment(maison.id)
-                findNavController().navigate(action)
+                goToDetail(maison.id)
             },
             onLongPress = { maison ->
-                // Ouvrir le dialogue pour ajouter un avis
-                showAddAvisDialog(maison.id)
+                goToAddAvis(maison.id)
             }
         )
 
-        binding.rvMaisons.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = this@HomeFragment.adapter
-        }
+        binding.rvMaisons.layoutManager =
+            LinearLayoutManager(requireContext())
+
+        binding.rvMaisons.adapter = adapter
     }
 
     private fun observeData() {
@@ -80,10 +83,18 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun showAddAvisDialog(maisonId: Int) {
-        val action = HomeFragmentDirections
-            .actionHomeFragmentToAddAvisFragment(maisonId)
-        findNavController().navigate(action)
+    private fun goToDetail(maisonId: Int) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_detailFragment,
+            bundleOf("maisonId" to maisonId)
+        )
+    }
+
+    private fun goToAddAvis(maisonId: Int) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_addAvisFragment,
+            bundleOf("maisonId" to maisonId)
+        )
     }
 
     override fun onDestroyView() {

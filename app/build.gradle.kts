@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.tunisiahotes"
+    namespace = "com.example.tunisiahotes"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.tunisiahotes"
+        applicationId = "com.example.tunisiahotes"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

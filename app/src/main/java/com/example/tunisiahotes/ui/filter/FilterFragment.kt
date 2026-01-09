@@ -1,19 +1,21 @@
-package com.tunisiahotes.ui.filter
+package com.example.tunisiahotes.ui.filter
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.tunisiahotes.databinding.FragmentFilterBinding
+import com.example.tunisiahotes.R
+import com.example.tunisiahotes.databinding.FragmentFilterBinding
 
 class FilterFragment : Fragment() {
 
     private var _binding: FragmentFilterBinding? = null
     private val binding get() = _binding!!
 
-    private val regions = listOf("SudEst", "SudOuest", "Djerba", "Sahel", "CapBon", "Tunis")
+    private val regions = listOf("Sud Est", "Sud Ouest", "Djerba", "Sahel", "Cap Bon", "Tunis")
     private val villes = listOf(
         "Tataouine", "Gabès", "Tamezret", "Douz", "Tozeur",
         "Houmt Souk", "Mahdia", "Sousse",
@@ -32,81 +34,54 @@ class FilterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupUI()
     }
 
-    private fun setupUI() {
-        binding.apply {
-            // Bouton Retour
-            btnRetour.setOnClickListener {
-                findNavController().navigateUp()
-            }
+    private fun setupUI() = with(binding) {
 
-            // Filtrer par Région
-            btnRegion.setOnClickListener {
-                showRegionDialog()
-            }
+        btnRetour.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
-            // Filtrer par Ville
-            btnVille.setOnClickListener {
-                showVilleDialog()
-            }
+        btnRegion.setOnClickListener {
+            showDialog("Choisir une région", regions, "Region")
+        }
 
-            // Filtrer par Saison
-            btnSaison.setOnClickListener {
-                showSaisonDialog()
-            }
+        btnVille.setOnClickListener {
+            showDialog("Choisir une ville", villes, "Ville")
+        }
 
-            // Trier par Prix (croissant)
-            btnPrix.setOnClickListener {
-                navigateToFilteredResult("Prix", "Croissant")
-            }
+        btnSaison.setOnClickListener {
+            showDialog("Choisir une saison", saisons, "Saison")
+        }
 
-            // Trier par Avis (décroissant)
-            btnAvis.setOnClickListener {
-                navigateToFilteredResult("Avis", "Décroissant")
-            }
+        btnPrix.setOnClickListener {
+            navigateToFilteredResult("Prix", "Croissant")
+        }
+
+        btnAvis.setOnClickListener {
+            navigateToFilteredResult("Avis", "Décroissant")
         }
     }
 
-    private fun showRegionDialog() {
-        val dialog = android.app.AlertDialog.Builder(requireContext())
-            .setTitle("Choisir une région")
-            .setItems(regions.toTypedArray()) { _, which ->
-                navigateToFilteredResult("Region", regions[which])
+    private fun showDialog(title: String, list: List<String>, filterType: String) {
+        android.app.AlertDialog.Builder(requireContext())
+            .setTitle(title)
+            .setItems(list.toTypedArray()) { _, which ->
+                navigateToFilteredResult(filterType, list[which])
             }
             .setNegativeButton("Annuler", null)
-            .create()
-        dialog.show()
-    }
-
-    private fun showVilleDialog() {
-        val dialog = android.app.AlertDialog.Builder(requireContext())
-            .setTitle("Choisir une ville")
-            .setItems(villes.toTypedArray()) { _, which ->
-                navigateToFilteredResult("Ville", villes[which])
-            }
-            .setNegativeButton("Annuler", null)
-            .create()
-        dialog.show()
-    }
-
-    private fun showSaisonDialog() {
-        val dialog = android.app.AlertDialog.Builder(requireContext())
-            .setTitle("Choisir une saison")
-            .setItems(saisons.toTypedArray()) { _, which ->
-                navigateToFilteredResult("Saison", saisons[which])
-            }
-            .setNegativeButton("Annuler", null)
-            .create()
-        dialog.show()
+            .show()
     }
 
     private fun navigateToFilteredResult(filterType: String, filterValue: String) {
-        val action = FilterFragmentDirections
-            .actionFilterFragmentToFilteredResultFragment(filterType, filterValue)
-        findNavController().navigate(action)
+        findNavController().navigate(
+            R.id.action_filterFragment_to_filteredResultFragment,
+            bundleOf(
+                "filterType" to filterType,
+                "filterValue" to filterValue
+            )
+        )
     }
 
     override fun onDestroyView() {

@@ -1,12 +1,12 @@
-package com.tunisiahotes.ui.home
+package com.example.tunisiahotes.ui.home
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.tunisiahotes.data.database.AppDatabase
-import com.tunisiahotes.data.database.MaisonRepository
-import com.tunisiahotes.data.entity.MaisonHoteEntity
+import com.example.tunisiahotes.data.database.AppDatabase
+import com.example.tunisiahotes.data.database.MaisonRepository
+import com.example.tunisiahotes.data.entity.MaisonHoteEntity
 import kotlinx.coroutines.flow.Flow
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {

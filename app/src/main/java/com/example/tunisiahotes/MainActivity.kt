@@ -1,12 +1,12 @@
-package com.tunisiahotes
+package com.example.tunisiahotes
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.tunisiahotes.R
-import com.tunisiahotes.databinding.ActivityMainBinding
+import com.example.tunisiahotes.R
+import com.example.tunisiahotes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

@@ -8,7 +8,7 @@
     <!-- Fragment Home (Page d'accueil) -->
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.tunisiahotes.ui.home.HomeFragment"
+        android:name="com.example.tunisiahotes.ui.home.HomeFragment"
         android:label="Tunisia'Hôtes"
         tools:layout="@layout/fragment_home">
 
@@ -48,7 +48,7 @@
     <!-- Fragment Détails -->
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.tunisiahotes.ui.detail.DetailFragment"
+        android:name="com.example.tunisiahotes.ui.detail.DetailFragment"
         android:label="Détails"
         tools:layout="@layout/fragment_detail">
 
@@ -76,7 +76,7 @@
     <!-- Fragment Filtrage -->
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.tunisiahotes.ui.filter.FilterFragment"
+        android:name="com.example.tunisiahotes.ui.filter.FilterFragment"
         android:label="Filtrer"
         tools:layout="@layout/fragment_filter">
 
@@ -92,7 +92,7 @@
     <!-- Fragment Résultat Filtré -->
     <fragment
         android:id="@+id/filteredResultFragment"
-        android:name="com.tunisiahotes.ui.filter.FilteredResultFragment"
+        android:name="com.example.tunisiahotes.ui.filter.FilteredResultFragment"
         android:label="Résultats"
         tools:layout="@layout/fragment_filtered_result">
 
@@ -116,7 +116,7 @@
     <!-- Fragment Réservation -->
     <fragment
         android:id="@+id/reservationFragment"
-        android:name="com.tunisiahotes.ui.reservation.ReservationFragment"
+        android:name="com.example.tunisiahotes.ui.reservation.ReservationFragment"
         android:label="Réservation"
         tools:layout="@layout/fragment_reservation">
 
@@ -128,7 +128,7 @@
     <!-- Fragment Accès Développeur -->
     <fragment
         android:id="@+id/developerAccessFragment"
-        android:name="com.tunisiahotes.ui.developer.DeveloperAccessFragment"
+        android:name="com.example.tunisiahotes.ui.developer.DeveloperAccessFragment"
         android:label="Accès Développeur"
         tools:layout="@layout/fragment_developer_access">
 
@@ -144,14 +144,14 @@
     <!-- Fragment Ajouter Maison -->
     <fragment
         android:id="@+id/addMaisonFragment"
-        android:name="com.tunisiahotes.ui.developer.AddMaisonFragment"
+        android:name="com.example.tunisiahotes.ui.developer.AddMaisonFragment"
         android:label="Ajouter une maison"
         tools:layout="@layout/fragment_add_maison" />
 
     <!-- Fragment Ajouter Avis -->
     <fragment
         android:id="@+id/addAvisFragment"
-        android:name="com.tunisiahotes.ui.avis.AddAvisFragment"
+        android:name="com.example.tunisiahotes.ui.avis.AddAvisFragment"
         android:label="Ajouter un avis"
         tools:layout="@layout/fragment_add_avis">
 
